@@ -1,8 +1,8 @@
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import { StackScreenProps } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme';
+import { colores, styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface Props extends DrawerScreenProps<any, any>{};
 
@@ -12,10 +12,14 @@ export const Pagina1Screen = ({ navigation }: Props) => {
 
     navigation.setOptions({
       headerLeft: () => (
-        <Button 
-          title="Menu"
-          onPress={() => navigation.toggleDrawer()}
-        />
+        <TouchableOpacity
+          style={{
+            marginLeft: 10
+          }}
+          onPress={ () => navigation.toggleDrawer() }
+        >
+          <Icon name='menu-outline' size={35} color={ colores.primary } />
+        </TouchableOpacity>
       )
     })
 
@@ -51,8 +55,9 @@ export const Pagina1Screen = ({ navigation }: Props) => {
             onPress={() => navigation.navigate('PersonaScreen', {
               id: 1,
               nombre: 'Maxi'
-            }) }
+            })}
           >
+            <Icon name='body-outline' size={35} color={ colores.secondary } />
             <Text style={ styles.botonGrandeTexto }>Maxi</Text>
           </TouchableOpacity>
 
@@ -66,6 +71,7 @@ export const Pagina1Screen = ({ navigation }: Props) => {
               nombre: 'Carola'
             }) }
           >
+            <Icon name='woman-outline' size={35} color={ colores.secondary } />
             <Text style={ styles.botonGrandeTexto }>Carola</Text>
           </TouchableOpacity>
         </View>

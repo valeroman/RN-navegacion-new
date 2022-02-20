@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Tab1Screen } from '../screens/Tab1Screen';
-import { Tab2Screen } from '../screens/Tab2Screen';
 import { StackNavigator } from './StackNavigator';
 import { colores } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { TopTabNavigator } from './TopTabNavigator';
+import Icon  from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
 
@@ -31,25 +32,26 @@ const TabAndroid = () => {
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1'
+              iconName = 'person-circle-outline'
             break;
 
-            case 'Tab2Screen':
-              iconName = 'T2'
+            case 'TopTabNavigator':
+              iconName = 'cash-outline'
             break;
 
             case 'StackNavigator':
-              iconName = 'T3'
+              iconName = 'cog-outline'
             break;
 
           }
 
-          return <Text style={{ color }}>{ iconName }</Text>
+          return <Icon name={ iconName } size={20} color={ colores.secondary } />
+          // return <Text style={{ color }}>{ iconName }</Text>
         }
       })}
     >
       <BottomTabAndroid.Screen name="Tab1Screen" options={{ title: 'Tab1' }} component={ Tab1Screen } />
-      <BottomTabAndroid.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={ Tab2Screen } />
+      <BottomTabAndroid.Screen name="TopTabNavigator" options={{ title: 'Tab2' }} component={ TopTabNavigator } />
       <BottomTabAndroid.Screen name="StackNavigator" options={{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabAndroid.Navigator>
   );
@@ -71,33 +73,34 @@ const TabsIOS = () => {
           borderTopWidth: 0,
           elevation: 0
         },
+        headerShown: false,
         tabBarLabelStyle: { fontSize: 15 },
-        tabBarIcon: ({ color, focused, size }) => {
+        tabBarIcon: ({ color }) => {
 
           let iconName: string = '';
 
           switch (route.name) {
             case 'Tab1Screen':
-              iconName = 'T1'
+              iconName = 'person-circle-outline'
             break;
 
-            case 'Tab2Screen':
-              iconName = 'T2'
+            case 'TopTabNavigator':
+              iconName = 'cash-outline'
             break;
 
             case 'StackNavigator':
-              iconName = 'T3'
+              iconName = 'cog-outline'
             break;
 
           }
-
-          return <Text style={{ color }}>{ iconName }</Text>
+          return <Icon name={ iconName } size={20} color={ colores.primary } />
+          // return <Text style={{ color }}>{ iconName }</Text>
         }
       })}
     >
       {/* <Tab.Screen name="Tab1Screen" options={{ title: 'Tab1', tabBarIcon: (props) => <Text style={{ color: props.color }}>T1</Text> }} component={ Tab1Screen } /> */}
       <BottomTabIOS.Screen name="Tab1Screen" options={{ title: 'Tab1' }} component={ Tab1Screen } />
-      <BottomTabIOS.Screen name="Tab2Screen" options={{ title: 'Tab2' }} component={ Tab2Screen } />
+      <BottomTabIOS.Screen name="TopTabNavigator" options={{ title: 'Tab2' }} component={ TopTabNavigator } />
       <BottomTabIOS.Screen name="StackNavigator" options={{ title: 'Stack' }} component={ StackNavigator } />
     </BottomTabIOS.Navigator>
     
