@@ -4,6 +4,7 @@ import { styles, colores } from '../theme/appTheme';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { TouchableIcon } from '../components/TouchableIcon';
 
 
 export const Tab1Screen = () => {
@@ -22,18 +23,18 @@ export const Tab1Screen = () => {
     >
         <Text style={ styles.title } >Iconos</Text>
         <Text>
-          <Icon name='airplane-outline' size={80} color={ colores.primary } />
-          <Icon name='boat-outline' size={80} color={ colores.primary } />
-          <Icon name='bicycle-outline' size={80} color={ colores.primary } />
-          <Icon name='cash-outline' size={80} color={ colores.primary } />
-          <Icon name='desktop-outline' size={80} color={ colores.primary } />
-          <Icon name='finger-print-outline' size={80} color={ colores.primary } />
-          <Icon name='person-circle-outline' size={80} color={ colores.primary } />
-          <Icon name='barbell-outline' size={80} color={ colores.primary } />
-          <Icon name='cog-outline' size={80} color={ colores.primary } />
-          <Icon name='heart-outline' size={80} color={ colores.primary } />
-          <Icon name='paw-outline' size={80} color={ colores.primary } />
-          <Icon name='planet-outline' size={80} color={ colores.primary } />
+          <TouchableIcon iconName='airplane-outline' />
+          <TouchableIcon iconName='boat-outline' />
+          <TouchableIcon iconName='bicycle-outline' />
+          <TouchableIcon iconName='cash-outline' />
+          <TouchableIcon iconName='desktop-outline' />
+          <TouchableIcon iconName='finger-print-outline' />
+          <TouchableIcon iconName='person-circle-outline' />
+          <TouchableIcon iconName='barbell-outline' />
+          <TouchableIcon iconName='cog-outline' />
+          <TouchableIcon iconName='heart-outline' />
+          <TouchableIcon iconName='paw-outline' />
+          <TouchableIcon iconName='planet-outline' />
         </Text>
     </View>
   )

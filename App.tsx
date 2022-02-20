@@ -9,20 +9,33 @@ import { MenuLateral } from './src/navigator/MenuLateral';
 // import { StackNavigator } from './src/navigator/StackNavigator';
 
 import { LogBox } from 'react-native';
+import { AuthProvider } from './src/context/AuthContex';
+
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you\'re using an old API with gesture components, check out new Gestures system!",
-  "RCTBridge required dispatch_sync to load RNGestureHandlerModule. This may lead to deadlocks"
+  "RCTBridge required dispatch_sync to load RNGestureHandlerModule. This may lead to deadlocks",
+  "Cannot record touch end without a touch start."
 ]);
 
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <StackNavigator /> */}
-      {/* <MenuLateralBasico /> */}
-      <MenuLateral />
-      {/* <Tabs /> */}
+      <AppState>
+        {/* <StackNavigator /> */}
+        {/* <MenuLateralBasico /> */}
+        <MenuLateral />
+        {/* <Tabs /> */}
+      </AppState>
     </NavigationContainer>
+  )
+}
+
+const AppState = ({ children }: any) => {
+  return (
+    <AuthProvider>
+      { children }
+    </AuthProvider>
   )
 }
 
